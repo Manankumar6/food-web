@@ -1,0 +1,97 @@
+import React from 'react'
+import { useCart, useDispatch } from '../components/ContextReducer'
+
+const Cart = () => {
+    const data = useCart()
+    const dispatch = useDispatch();
+    if (data.length === 0) {
+        return (
+            <div>
+                <div className="m-5 w-100 text-center fs-3">
+                    The Cart is Empty!
+                </div>
+            </div>
+        )
+    }
+   
+    // Check Out
+    const handleCheckOut = async () => {
+        const userEmail = localStorage.getItem("email");
+    
+        // Check if userEmail is valid
+        if (!userEmail) {
+            console.error('Invalid or missing email in localStorage.');
+            return;
+        }
+    
+        try {
+            const response = await fetch('https://food-api-u34z.onrender.com/api/orderdata', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    order_data: data,
+                    email: userEmail,
+                    order_date: new Date().toLocaleDateString()
+                })
+            });
+           
+            if (response.ok) {
+                // Assuming dispatch is correctly defined and imported
+                await dispatch({ type: 'DROP' });
+            } else {
+                // Handle non-ok response (e.g., log error or show an alert)
+                console.error('Failed to submit order:', response.statusText);
+            }
+        } catch (error) {
+            // Handle fetch error
+            console.error('Error during fetch:', error.message);
+        }
+    };
+
+
+    let totalPrice = data.reduce((total, food) => total + food.price, 0)
+    console.log(totalPrice, "totalprice")
+    return (
+        <div className='container'>
+            <div className=" mx-auto mt-5 table-responsive table-responsive-sm table-responsive-md"></div>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Option</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((food, index) => {
+                        return (
+
+                            <tr>
+                                <th scope="row">{index + 1}</th>
+                                <td>{food.name}</td>
+                                <td>{food.qty}</td>
+                                <td>{food.size}</td>
+                                <td>{food.price}</td>
+                                <td onClick={() => { dispatch({ type: "REMOVE", index: index }) }} ><i className='bx bxs-trash-alt '></i></td>
+
+                            </tr>
+                        )
+                    })}
+                    <div>
+                        <h1 className='fs-2'>Total Price: {totalPrice}/-</h1>
+                    </div>
+                    <div>
+                        <button className='btn bg-success mt-5 ' onClick={handleCheckOut}>Check Out</button>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+export default Cart
