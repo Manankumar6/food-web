@@ -13,17 +13,17 @@ const Cart = () => {
             </div>
         )
     }
-   
+
     // Check Out
     const handleCheckOut = async () => {
         const userEmail = localStorage.getItem("email");
-    
+
         // Check if userEmail is valid
         if (!userEmail) {
             console.error('Invalid or missing email in localStorage.');
             return;
         }
-    
+
         try {
             const response = await fetch('https://food-api-u34z.onrender.com/api/orderdata', {
                 method: "POST",
@@ -36,7 +36,7 @@ const Cart = () => {
                     order_date: new Date().toLocaleDateString()
                 })
             });
-           
+
             if (response.ok) {
                 // Assuming dispatch is correctly defined and imported
                 await dispatch({ type: 'DROP' });
@@ -52,11 +52,11 @@ const Cart = () => {
 
 
     let totalPrice = data.reduce((total, food) => total + food.price, 0)
-    console.log(totalPrice, "totalprice")
+    
     return (
-        <div className='container'>
+        <div className='container ' >
             <div className=" mx-auto mt-5 table-responsive table-responsive-sm table-responsive-md"></div>
-            <table class="table text-white">
+            <table className="table text-white  ">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -67,7 +67,7 @@ const Cart = () => {
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {data.map((food, index) => {
                         return (
 
@@ -82,14 +82,18 @@ const Cart = () => {
                             </tr>
                         )
                     })}
+                    </tbody>
+                </table>
+
                     <div>
                         <h1 className='fs-2'>Total Price: {totalPrice}/-</h1>
                     </div>
                     <div>
-                        <button className='btn bg-success mt-5 ' onClick={handleCheckOut}>Check Out</button>
+                        <button className='btn bg-success mt-2 ' onClick={handleCheckOut}>Check Out</button>
                     </div>
-                </tbody>
-            </table>
+
+
+
         </div>
     )
 }

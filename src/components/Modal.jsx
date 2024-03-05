@@ -10,7 +10,7 @@ const Modal = ({ children, onClose }) => {
     zIndex: 100,
     height: " 90%",
     width: "90%",
-    color:"white"
+    color:"white",
   }
   const OVERLAY_STYLE = {
     position: "fixed",
@@ -28,7 +28,7 @@ const Modal = ({ children, onClose }) => {
     <>
       <div style={OVERLAY_STYLE}>
         <div style={MODAL_STYLE}>
-          <button className='btn bg-danger fs-4' style={{ marginLeft: "90%", marginTop: "-35px" }} onClick={onClose}>X</button>
+          <button className='btn bg-danger ' style={{ marginLeft: "90%", marginTop: "-35px" }} onClick={onClose}>X</button>
           {children}
         </div>
       </div>

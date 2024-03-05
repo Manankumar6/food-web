@@ -45,3 +45,8 @@ hr{
 box-shadow: 0 0 15px gray;
 transform: scale(1.1);
 }
+@media only screen and (max-width: 420px) {
+  .table{
+    font-size: 10px;
+  }
+}

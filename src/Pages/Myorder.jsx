@@ -20,7 +20,7 @@ const Myorder = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(data, "consoledata");
+     
         setOrderData(data.foodData); // Assuming your array is under the 'orderData' key
 
       }

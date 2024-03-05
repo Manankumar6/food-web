@@ -28,25 +28,25 @@ const Card = (props) => {
         }
       }
     
-        console.log(food, "food data");
+     
         
         if (food) {
-            console.log(food, "after add food data");
+           
             if (food.size === size ) {
                 await dispatch({ type: "UPDATE", id: _id, price: finalPrice, qty: qty, size:size });
-                console.log('update dispatch',food)
+              
                 return;
             }else if(food.size !== size){
                 await dispatch({ type: "ADD", id: _id, name: name, price: finalPrice, qty: qty, size: size });
-                console.log('Add dispatch 1' , food)
+          
                 return; 
             }
             return;
         }
         
         await dispatch({ type: "ADD", id: _id, name: name, price: finalPrice, qty: qty, size: size });
-        console.log("last add dispatch")
-        console.log(data, "data");
+       
+     
         return;
     };
     
