@@ -6,9 +6,13 @@ const Cart = () => {
     const dispatch = useDispatch();
     if (data.length === 0) {
         return (
-            <div>
-                <div className="m-5 w-100 text-center fs-3">
-                    The Cart is Empty!
+            <div className='container'>
+                <div className="m-5  text-center fs-3">
+                    The Cart is Empty <span className='fs-2 fw-bolder text-danger'>!</span>
+                </div>
+                <div className='d-flex justify-content-center'>
+
+                    <img src="image/cart.png" alt="cartimage" style={{width:"250px", height:"300px"}}  />
                 </div>
             </div>
         )

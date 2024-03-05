@@ -69,7 +69,7 @@ const Card = (props) => {
 
                     <div className="container w-100 d-flex justify-content-between">
 
-                        <select className='m-2 h-100 text-white bg-primary rounded' onChange={(e) => setQty(e.target.value)}>
+                        <select className='m-2 h-100 text-dark bg-outline-secondary rounded' onChange={(e) => setQty(e.target.value)}>
                             {
                                 Array.from(Array(6), (e, i) => {
                                     return (
@@ -80,7 +80,7 @@ const Card = (props) => {
 
                         </select>
 
-                        <select className='m-2 h-100   rounded text-white bg-primary' onChange={(e) => setSize(e.target.value)} ref={priceRef}>
+                        <select className='m-2 h-100   rounded text-white bg-secondary' onChange={(e) => setSize(e.target.value)} ref={priceRef}>
 
                             {priceOption.map((data) => {
                                 return (
@@ -89,11 +89,11 @@ const Card = (props) => {
                             })}
 
                         </select>
-                        <div className="d-inline h-100 fs-5">₹{finalPrice}/-</div>
+                        <div className="d-inline h-100 fs-4 fw-bold">₹{finalPrice}/-</div>
                     </div>
                 </div>
                 <hr />
-                <button className={`btn btn-primary justify-center my-2 mx-2`} onClick={handleCart}>Add to Cart</button>
+                <button className={`btn btn-secondary justify-center my-2 mx-2 fw-bold`} onClick={handleCart}>Add to Cart</button>
             </div>
         </div>
     )

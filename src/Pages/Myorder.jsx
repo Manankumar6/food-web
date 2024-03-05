@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Myorder = () => {
   const [orderData, setOrderData] = useState([]);
-  let preOrderDate = null;
+
   const fetchData = async () => {
 
     try {
@@ -52,7 +52,7 @@ const Myorder = () => {
               return (
                 <>
                   {item.Order_date ?
-                    <div>
+                    <div key={ind}>
                       <h3 className="m-auto mt-1 text-light">
                         {item.Order_date}
                       </h3>
@@ -101,7 +101,8 @@ const Myorder = () => {
       })
 
         : <div className='container d-flex flex-column justify-content-center align-items-center mt-5  text-light'>
-          <h1>Cart is empty</h1>
+          <img src="image/cart.png" alt="empty cart" style={{width:"300px", height:"300px"}} />
+          <h1>Cart is empty <span className='fs-1 fw-bolder text-danger'>!</span></h1>
           <NavLink to="/"> <button className='btn btn-warning fs-2 fw-bold w-100 my-2 '>Shop Now</button></NavLink>
         </div>}
         </div>

@@ -25,7 +25,7 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <ul className="navbar-nav me-auto mb-2 mx-4 ">
-                            <NavLink className="nav-link active fs-4" aria-current="page" to="/"><i class="fa-solid fa-house"></i></NavLink>
+                            <NavLink className="nav-link active fs-4" aria-current="page" to="/"><i className="fa-solid fa-house"></i></NavLink>
                             {
                                 (localStorage.getItem("authToken")) ?
                                     <NavLink className="nav-link active fs-4" aria-current="page" to="/myorder"> My Order</NavLink>
@@ -44,11 +44,11 @@ const Navbar = () => {
 
 
                                 <NavLink className="btn bg-white text-success mx-1" to="/" onClick={()=>setCartView(true)} >
-                                <i class="fa-solid fa-cart-shopping"></i> <span className="badge bg-danger rounded-circle">{data.length}</span>
+                                <i className="fa-solid fa-cart-shopping"></i> <span className="badge bg-danger rounded-circle">{data.length}</span>
                                 </NavLink>
 
                               {cartView?<Modal onClose={()=>{setCartView(false)}} ><Cart/></Modal>:null}
-                                <button className="btn bg-white text-danger mx-1" onClick={handleLogout} ><i class="fa-solid fa-right-from-bracket"></i></button>
+                                <button className="btn bg-white text-danger mx-1" onClick={handleLogout} ><i className="fa-solid fa-right-from-bracket"></i></button>
                             </div>
                         }
                     </div>

@@ -55,16 +55,15 @@ const Home = () => {
             {loading ? <Loading />
                 :
                 <>
-
-                    <Carousel
-                        setSearch={setSearch}
-                    />
+                  <Carousel
+                setSearch={setSearch}
+                /> 
                     <div className=" container bg-dark mt-2 ">
                         {filterData &&
                             filterData.map((curr, ind) => {
                                 return (
-                                    <>
-                                        <div className="row mb-3 " key={ind}>
+                                    <div key={ind}>
+                                        <div className="row mb-3 " >
 
                                             <h1 className=' text-light'>{curr}</h1>
                                             <hr />
@@ -88,7 +87,7 @@ const Home = () => {
 
 
                                         </div>
-                                    </>
+                                    </div>
 
                                 )
                             })
