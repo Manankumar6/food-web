@@ -24,11 +24,11 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <ul className="navbar-nav me-auto mb-2 mx-4 ">
+                        <ul className="navbar-nav mx-auto mb-2 mx-4 ">
                             <NavLink className="nav-link active fs-4" aria-current="page" to="/"><i className="fa-solid fa-house"></i></NavLink>
                             {
                                 (localStorage.getItem("authToken")) ?
-                                    <NavLink className="nav-link active fs-4" aria-current="page" to="/myorder"> My Order</NavLink>
+                                    <NavLink className="nav-link active fs-4" aria-current="page" to="/myorder"><i class="fa-solid fa-bag-shopping mx-1"></i>  My Order</NavLink>
 
                                     : ""}
                         </ul>
@@ -40,7 +40,7 @@ const Navbar = () => {
 
                             </div>
                             :
-                            <div>
+                            <div >
 
 
                                 <NavLink className="btn bg-white text-success mx-1" to="/" onClick={()=>setCartView(true)} >

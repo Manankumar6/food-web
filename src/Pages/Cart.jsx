@@ -93,7 +93,7 @@ const Cart = () => {
                         <h1 className='fs-2'>Total Price: {totalPrice}/-</h1>
                     </div>
                     <div>
-                        <button className='btn bg-success mt-2 ' onClick={handleCheckOut}>Check Out</button>
+                        <button className='btn bg-warning mt-2 fw-bold text-dark' onClick={handleCheckOut}>Check Out</button>
                     </div>
 
 
