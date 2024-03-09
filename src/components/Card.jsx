@@ -62,7 +62,7 @@ const Card = (props) => {
     return (
         <div className='mx-3'>
             <div className="card mt-3 mb-3" style={{ "width": "18rem", "maxHeight": "350px" }}>
-                <img src={img} className="card-img-top " alt="foodimage" />
+                <img src={img} className="card-img-top  " alt="foodimage" />
                 <div className="card-body">
                     <h5 className="card-title fs-3">{name}</h5>
                     <p className="card-text">Order Now</p>
@@ -93,7 +93,7 @@ const Card = (props) => {
                     </div>
                 </div>
                 <hr />
-                <button className={`btn btn-secondary justify-center my-2 mx-2 fw-bold`} onClick={handleCart}>Add to Cart</button>
+                <button className={`btn btn-warning justify-center my-2 mx-2 fw-bold`} onClick={handleCart}>Add to Cart</button>
             </div>
         </div>
     )

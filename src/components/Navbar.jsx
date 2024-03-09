@@ -17,14 +17,14 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark  bg-gradient" style={{background:"#395b8d"}}>
+            <nav className="navbar navbar-expand-lg navbar-dark  bg-gradient " style={{background:"#d90429"}}>
                 <div className="container-fluid">
                     <NavLink className="navbar-brand fs-1  fst-italic" to="/" ><span className='text-warning fw-bold'>24/7</span> Foody</NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <ul className="navbar-nav mx-auto mb-2 mx-4 ">
+                        <ul className="navbar-nav  mb-2  me-auto">
                             <NavLink className="nav-link active fs-4" aria-current="page" to="/"><i className="fa-solid fa-house"></i></NavLink>
                             {
                                 (localStorage.getItem("authToken")) ?
